@@ -4,85 +4,307 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WExcel Privacy Policy</title>
+  <meta name="description" content="How the WExcel Android app handles your data.">
+  <style>
+    :root { --text: #102019; --muted: #59695f; --accent: #107c41; --bg: #ffffff; --card: #f3f6f4; --border: #e3e9e5; }
+    @media (prefers-color-scheme: dark) {
+      :root { --text: #eaf2ed; --muted: #a0b0a8; --accent: #6bd198; --bg: #0d1210; --card: #141a17; --border: #26302b; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", Roboto, Tahoma, Arial, sans-serif; line-height: 1.7; }
+    main { max-width: 820px; margin: 0 auto; padding: 32px 18px 64px; }
+    h1 { font-size: 1.8rem; margin: 0 0 4px; }
+    h2 { font-size: 1.2rem; margin: 32px 0 8px; color: var(--accent); }
+    h3 { font-size: 1.02rem; margin: 18px 0 4px; }
+    p, li { margin: 6px 0; }
+    ul { padding-inline-start: 22px; }
+    a { color: var(--accent); }
+    .meta { color: var(--muted); margin: 0 0 18px; }
+    .lang { display: flex; gap: 10px; margin: 0 0 24px; flex-wrap: wrap; }
+    .lang a { padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; text-decoration: none; }
+    .summary { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 14px 18px; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: .95rem; }
+    th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: start; vertical-align: top; }
+    th { background: var(--card); }
+    .rtl { direction: rtl; text-align: right; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; margin: 40px; line-height: 1.6;">
+<body>
+<main>
+
+<nav class="lang"><a href="#en">English</a><a href="#ar">العربية</a></nav>
+
+<!-- ============================== ENGLISH ============================== -->
+<section id="en" lang="en">
   <h1>Privacy Policy for WExcel</h1>
-  <p><strong>Last updated:</strong> November 2025</p>
+  <p class="meta"><strong>Effective date:</strong> October 19, 2026 &nbsp;·&nbsp; Developer: Mohammed Alrehaili &nbsp;·&nbsp; App: WExcel (com.alrehaili.WExcel)</p>
 
-  <h2>1. Information We Collect</h2>
-  <p>
-    WExcel processes your WhatsApp chats entirely on your device. When you export a chat or grant notification access, the app reads
-    sender names, message text, timestamps, and any attached files <em>only</em> to convert them into Excel sheets. Nothing is uploaded
-    to our servers or cloud services. The resulting text or Excel files are written solely to the folder you select via Android’s
-    Storage Access Framework, and you can delete them at any time using your file manager.
-  </p>
+  <div class="summary">
+    <strong>In short:</strong>
+    <ul>
+      <li>WExcel turns your messages into Excel tables <strong>on your device</strong>. We do not run servers and never receive your messages or files.</li>
+      <li>Message content only leaves your phone if <strong>you</strong> turn on Google Sheets sync — and then it goes to <strong>your own</strong> Google account, not to us.</li>
+      <li>The free version shows ads from Google AdMob, which may use your device's advertising ID. Purchases are handled by Google Play.</li>
+    </ul>
+  </div>
 
-  <h2>2. In-App Purchases</h2>
+  <h2>1. Data WExcel processes</h2>
+  <h3>1.1 Notifications (optional, automatic mode)</h3>
   <p>
-    Optional one-time purchases (for example, unlocking automatic conversion) are handled securely by Google Play Billing. We do not
-    receive or store your payment details; Google processes that information under the
-    <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>. Inside the app we only keep an encrypted,
-    device-local flag to remember whether a feature you bought should stay unlocked.
+    If you grant notification access, Android delivers your device's notifications to WExcel. WExcel <strong>only uses notifications
+    from the apps you add to your tables</strong> (for example WhatsApp, Telegram, Instagram or an email app) and ignores all others
+    without storing them. From those apps it reads the sender name, the message text (as shown in the notification, including messages
+    other people send you) and the time, and uses them only to fill your tables. You can revoke notification access at any time in
+    Android settings.
   </p>
-
-  <h2>3. Permissions, Advertising, and Third-Party Services</h2>
+  <h3>1.2 Files you share or pick</h3>
   <p>
-    - <strong>Folder access (Storage Access Framework):</strong> used solely so you can pick the folder where chats and Excel files are
-      read or saved. You control the permission via Android’s system picker and can revoke it whenever you like.<br>
-    - <strong>Notification listener (optional):</strong> requested only if you enable automatic capture from WhatsApp notifications.
-      It exists purely to convert messages in real time and can be disabled in system settings.
+    When you share an exported chat (.txt or .zip), a PDF or a text file with WExcel, or pick a folder, the app reads that content on
+    your device to build the table. From a .zip export only the chat text is read; media attachments are not processed. Text in scanned
+    PDFs is recognised on the device (ML Kit on-device text recognition).
   </p>
+  <h3>1.3 What is stored, and where</h3>
+  <table>
+    <tr><th>Data</th><th>Where it is stored</th></tr>
+    <tr><td>Captured messages (.txt) and generated Excel files (.xlsx)</td><td>The folder <strong>you choose</strong> on your device. Other apps you have given access to that folder may also be able to read it.</td></tr>
+    <tr><td>Table settings, keywords, preferences</td><td>App-private storage on your device.</td></tr>
+    <tr><td>Working caches (extracted rows for the dashboard and widget, duplicate-detection fingerprints, sync queue)</td><td>App-private storage. Duplicate-detection keeps only one-way hashes of messages (never the text), for up to 30 days.</td></tr>
+    <tr><td>Debug report (only when you request it)</td><td>A text file saved to your Downloads folder. It includes your settings, table definitions and recent app logs, and is sent to anyone only if you choose to share it.</td></tr>
+  </table>
+  <h3>1.4 On-device AI (optional)</h3>
   <p>
-    <strong>Advertising:</strong> WExcel uses <strong>Google AdMob</strong> to display advertisements. AdMob and its partners may collect and process personal data such as your
-    device's Advertising ID, IP address, and usage data to serve personalized or non-personalized ads, measure ad performance, and prevent fraud.
-    Google's use of this data is governed by the <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>.
+    If you enable AI extraction, messages are analysed by a language model that runs <strong>on your device</strong> (a Gemma model you
+    import yourself, or Gemini Nano provided by Android's AICore). WExcel does not send message content to any AI service.
   </p>
+  <h3>1.5 Auto-reply (optional)</h3>
   <p>
-    Aside from Google Play Billing, AdMob, and standard Android services, we do not integrate other analytics or tracking components.
-  </p>
-
-  <h2>4. GDPR (EU/EEA Users)</h2>
-  <p>
-    <strong>Advertising Consent:</strong> We use the <strong>Google User Messaging Platform (UMP) SDK</strong> to manage user consent for advertising in the European Economic Area (EEA) and the UK.
-    Upon launching the app, users in these regions will be presented with a consent form to accept or manage their preferences regarding data collection
-    for personalized ads. You can update your preferences at any time by reinstalling the app to reset the consent state.
-  </p>
-  <p>
-    <strong>App Data:</strong> Because all WhatsApp data stays on your device, you can exercise most rights (access, deletion, objection) by revoking permissions,
-    deleting the generated files, or uninstalling the app. If you reach out to us—for example via support email—we will help with any
-    information we might hold outside the app (e.g., correspondence about a purchase).
-  </p>
-
-  <h2>5. CCPA & CPRA (California Residents)</h2>
-  <p>
-    We do not sell your personal information. However, we work with third-party advertising partners (Google AdMob) who may collect identifiers
-    (like your Advertising ID) to serve ads. You can opt out of personalized advertising through your Android device settings (Settings > Google > Ads > Delete advertising ID).
-    Purchase-related data is handled exclusively by Google Play Billing.
+    If you turn on auto-reply for a table, WExcel uses the reply action of the incoming notification to send the text you wrote to that
+    chat. Sending is rate-limited to avoid spam. It is off by default.
   </p>
 
-  <h2>6. CalOPPA</h2>
+  <h2>2. Google Sheets sync (optional)</h2>
   <p>
-    This Privacy Policy is always available inside the app and on the store listing. We clearly disclose the permissions we request
-    (folder access and notification access) and why we need them. When we make changes, we update the “Last updated” date and describe
-    important revisions in the app or listing.
+    Google Sheets sync is <strong>off by default</strong>. If you connect a Google account and turn sync on for a table:
+  </p>
+  <ul>
+    <li>WExcel asks Google only for the <code>drive.file</code> permission, which lets it access <strong>only the spreadsheets it creates</strong> — not your other Google Drive files.</li>
+    <li>For each synced table WExcel creates a spreadsheet in <strong>your</strong> Google Drive and sends the table's rows (the column values extracted from your messages, plus a technical row ID used to avoid duplicates) <strong>directly from your device to Google</strong>.</li>
+    <li>The developer has no access to your Google account, your spreadsheets or their content. Rows waiting to be sent are queued on your device.</li>
+    <li>You decide who can see each spreadsheet by sharing it in Google Sheets.</li>
+    <li>You can stop at any time: turn sync off, disconnect the account in WExcel settings, or remove WExcel's access at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>. Spreadsheets already created stay in your Drive until you delete them.</li>
+  </ul>
+  <p>
+    <strong>Limited Use disclosure:</strong> WExcel's use and transfer of information received from Google APIs to any other app will
+    adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>,
+    including the Limited Use requirements. Data obtained through Google APIs is used only to provide the sync feature you turned on; it
+    is not used for advertising, not sold, and not read by humans.
   </p>
 
-  <h2>7. Children’s Privacy</h2>
+  <h2>3. Advertising (free version)</h2>
   <p>
-    WExcel is not directed to children under 13. We do not knowingly collect data from children. Parents or guardians can revoke
-    notification access, remove folder permissions, or uninstall the app to prevent use.
+    The free version shows ads from <strong>Google AdMob</strong>. AdMob and its partners may collect your device's advertising ID, IP
+    address, device and usage information to show ads (personalized or not), measure them and prevent fraud. <strong>Your messages and
+    tables are never shared with advertisers.</strong> Google's processing is described in the
+    <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google partner sites policy</a> and the
+    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>. Ads are removed for premium users.
   </p>
 
-  <h2>8. Changes</h2>
+  <h2>4. Purchases and subscriptions</h2>
   <p>
-    We may update this policy from time to time. Any revisions appear here with a new “Last updated” date. Continued use of WExcel
-    after the update means you accept the revised policy.
+    The lifetime purchase and the monthly/yearly subscriptions are processed by <strong>Google Play Billing</strong>. We never receive your
+    payment details. The app keeps only a flag on your device recording whether premium features are unlocked, and checks it with
+    Google Play.
   </p>
 
-  <h2>9. Contact Us</h2>
+  <h2>5. Other Google services</h2>
   <p>
-    For questions about privacy or to exercise your rights, email us at:
-    <strong><a href="mailto:mohammedalrehaili22@gmail.com">mohammedalrehaili22@gmail.com</a></strong>
+    The app uses Google Play In-App Review to let you rate it, and the Google User Messaging Platform to ask for ad consent where required.
+    We do not use any analytics or tracking SDKs besides those described in this policy.
   </p>
+
+  <h2>6. Backups</h2>
+  <p>
+    If Android backup is enabled on your device, only your <strong>settings and table definitions</strong> are included in your device's
+    backup to your Google account. Message caches, duplicate-detection data, purchase status and AI models are excluded. The Excel and
+    text files in your chosen folder are not part of the app backup.
+  </p>
+
+  <h2>7. Sharing and selling</h2>
+  <p>
+    We do not sell personal information and we do not share your messages or tables with anyone. Data only reaches third parties in the
+    cases described above: advertising identifiers (AdMob, free version), payments (Google Play), and your own Google account when you
+    turn on Google Sheets sync.
+  </p>
+
+  <h2>8. Your choices and rights</h2>
+  <ul>
+    <li><strong>Stop capturing:</strong> turn off notification reading in WExcel or revoke notification access in Android settings.</li>
+    <li><strong>Delete data:</strong> delete the .txt and .xlsx files in your folder; clear the app's data or uninstall WExcel to remove everything it stores privately.</li>
+    <li><strong>Google Sheets:</strong> turn off sync, disconnect, or revoke access as described in section 2; delete synced spreadsheets in Google Drive.</li>
+    <li><strong>Ads (EEA/UK):</strong> change or withdraw consent at any time from <em>Settings → Ad privacy choices</em> in the app.</li>
+    <li><strong>Advertising ID:</strong> reset or delete it in Android settings (Settings → Google → Ads, or Settings → Privacy → Ads, depending on your device).</li>
+  </ul>
+  <p>
+    <strong>GDPR (EEA/UK):</strong> processing on your device is done to provide the features you use; advertising relies on your consent
+    collected through Google's consent form. <strong>CCPA/CPRA (California):</strong> we do not sell or share personal information for
+    cross-context behavioral advertising beyond the AdMob identifiers described above, which you can limit through your device's ad settings.
+    Because we hold no copy of your app data, most requests can be completed directly on your device; for anything else, contact us.
+  </p>
+
+  <h2>9. Security</h2>
+  <p>
+    App data stays in Android's app-private storage. Connections to Google (Sheets, Play, AdMob) use encrypted HTTPS. Files in the folder
+    you choose are protected by your device's security; avoid choosing a folder that other apps you do not trust can read.
+  </p>
+
+  <h2>10. Your responsibility for others' messages</h2>
+  <p>
+    Messages you capture may contain other people's personal information. Make sure you are allowed to store and process it under the
+    laws that apply to you.
+  </p>
+
+  <h2>11. Children</h2>
+  <p>WExcel is a business tool and is not directed to children under 13. We do not knowingly collect data from children.</p>
+
+  <h2>12. Changes</h2>
+  <p>
+    We update this policy when the app changes. The effective date above shows the latest version, and important changes are announced in
+    the app or on the store listing.
+  </p>
+
+  <h2>13. Contact</h2>
+  <p>
+    Questions or requests: <a href="mailto:mohammedalrehaili22@gmail.com">mohammedalrehaili22@gmail.com</a>
+  </p>
+</section>
+
+<hr>
+
+<!-- ============================== ARABIC ============================== -->
+<section id="ar" lang="ar" class="rtl">
+  <h1>سياسة الخصوصية لتطبيق WExcel</h1>
+  <p class="meta"><strong>تاريخ السريان:</strong> 19 أكتوبر 2026 &nbsp;·&nbsp; المطوّر: محمد الرحيلي &nbsp;·&nbsp; التطبيق: WExcel (com.alrehaili.WExcel)</p>
+
+  <div class="summary">
+    <strong>باختصار:</strong>
+    <ul>
+      <li>يحوّل WExcel رسائلك إلى جداول Excel <strong>على جهازك</strong>. ليس لدينا خوادم، ولا تصلنا رسائلك أو ملفاتك أبداً.</li>
+      <li>لا يغادر محتوى الرسائل جوالك إلا إذا فعّلت <strong>أنت</strong> المزامنة مع Google Sheets، وحينها يذهب إلى <strong>حساب Google الخاص بك</strong> لا إلينا.</li>
+      <li>تعرض النسخة المجانية إعلانات Google AdMob التي قد تستخدم معرّف الإعلانات في جهازك. وتتم المشتريات عبر Google Play.</li>
+    </ul>
+  </div>
+
+  <h2>1. البيانات التي يعالجها WExcel</h2>
+  <h3>1.1 الإشعارات (اختياري، في الوضع التلقائي)</h3>
+  <p>
+    إذا منحت صلاحية قراءة الإشعارات، يرسل أندرويد إشعارات جهازك إلى WExcel. ويستخدم WExcel <strong>إشعارات التطبيقات التي تضيفها إلى جداولك فقط</strong>
+    (مثل واتساب أو تيليجرام أو إنستغرام أو تطبيق بريد) ويتجاهل غيرها دون حفظها. ومن هذه التطبيقات يقرأ اسم المرسل ونص الرسالة كما يظهر في الإشعار
+    (بما في ذلك رسائل الآخرين إليك) ووقتها، ويستخدمها لتعبئة جداولك فقط. يمكنك إلغاء الصلاحية في أي وقت من إعدادات أندرويد.
+  </p>
+  <h3>1.2 الملفات التي تشاركها أو تختارها</h3>
+  <p>
+    عند مشاركة محادثة مُصدَّرة (‎.txt أو ‎.zip) أو ملف PDF أو ملف نصي مع WExcel، أو عند اختيار مجلد، يقرأ التطبيق محتواه على جهازك لبناء الجدول.
+    من ملفات ‎.zip يُقرأ نص المحادثة فقط ولا تُعالَج الوسائط المرفقة. ويتم التعرف على النص في ملفات PDF الممسوحة ضوئياً على الجهاز نفسه (ML Kit).
+  </p>
+  <h3>1.3 ما يُحفظ وأين</h3>
+  <table>
+    <tr><th>البيانات</th><th>مكان الحفظ</th></tr>
+    <tr><td>الرسائل الملتقطة (‎.txt) وملفات Excel الناتجة (‎.xlsx)</td><td>المجلد <strong>الذي تختاره</strong> على جهازك. قد تتمكن التطبيقات الأخرى التي منحتها صلاحية هذا المجلد من قراءته.</td></tr>
+    <tr><td>إعدادات الجداول والكلمات المفتاحية والتفضيلات</td><td>التخزين الخاص بالتطبيق على جهازك.</td></tr>
+    <tr><td>بيانات تشغيل مؤقتة (صفوف لوحة الإحصائيات والودجت، وبصمات منع التكرار، وقائمة انتظار المزامنة)</td><td>التخزين الخاص بالتطبيق. بصمات منع التكرار تحفظ قيمة مشفّرة باتجاه واحد فقط (وليس نص الرسالة) لمدة أقصاها 30 يوماً.</td></tr>
+    <tr><td>تقرير التشخيص (عند طلبك فقط)</td><td>ملف نصي في مجلد التنزيلات، يحتوي إعداداتك وتعريفات الجداول وسجلات التطبيق الأخيرة، ولا يُرسَل لأحد إلا إذا اخترت مشاركته.</td></tr>
+  </table>
+  <h3>1.4 الذكاء الاصطناعي على الجهاز (اختياري)</h3>
+  <p>
+    إذا فعّلت الاستخراج بالذكاء الاصطناعي، تُحلَّل الرسائل بنموذج لغوي يعمل <strong>على جهازك</strong> (نموذج Gemma تستورده بنفسك، أو Gemini Nano عبر خدمة AICore في أندرويد).
+    لا يرسل WExcel محتوى الرسائل إلى أي خدمة ذكاء اصطناعي.
+  </p>
+  <h3>1.5 الرد التلقائي (اختياري)</h3>
+  <p>
+    إذا فعّلت الرد التلقائي لجدول ما، يستخدم WExcel زر الرد في الإشعار الوارد لإرسال النص الذي كتبته أنت إلى تلك المحادثة، مع حدّ لعدد الردود لمنع الإزعاج. الميزة متوقفة افتراضياً.
+  </p>
+
+  <h2>2. المزامنة مع Google Sheets (اختيارية)</h2>
+  <p>المزامنة <strong>متوقفة افتراضياً</strong>. إذا ربطت حساب Google وفعّلت المزامنة لجدول ما:</p>
+  <ul>
+    <li>يطلب WExcel من Google صلاحية <code>drive.file</code> فقط، وهي تسمح له بالوصول إلى <strong>جداول البيانات التي ينشئها هو فقط</strong>، لا إلى بقية ملفاتك في Google Drive.</li>
+    <li>ينشئ WExcel لكل جدول مُزامَن جدول بيانات في Google Drive <strong>الخاص بك</strong>، ويرسل صفوفه (قيم الأعمدة المستخرجة من رسائلك، مع معرّف تقني للصف يمنع التكرار) <strong>من جهازك إلى Google مباشرة</strong>.</li>
+    <li>لا يملك المطوّر أي وصول إلى حسابك في Google أو إلى جداولك أو محتواها. والصفوف التي تنتظر الإرسال تبقى في قائمة على جهازك.</li>
+    <li>أنت من يحدد من يرى كل جدول بمشاركته من Google Sheets.</li>
+    <li>يمكنك الإيقاف في أي وقت: أوقف المزامنة، أو افصل الحساب من إعدادات WExcel، أو أزل صلاحية WExcel من <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>. وتبقى الجداول المُنشأة في Drive حتى تحذفها أنت.</li>
+  </ul>
+  <p>
+    <strong>إفصاح الاستخدام المحدود:</strong> يلتزم WExcel في استخدام المعلومات التي يتلقاها من واجهات Google ونقلها إلى أي تطبيق آخر
+    بـ <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">سياسة بيانات مستخدمي خدمات Google API</a>، بما فيها متطلبات الاستخدام المحدود (Limited Use).
+    تُستخدم هذه البيانات فقط لتقديم ميزة المزامنة التي فعّلتها، ولا تُستخدم للإعلانات، ولا تُباع، ولا يطّلع عليها أحد.
+  </p>
+
+  <h2>3. الإعلانات (النسخة المجانية)</h2>
+  <p>
+    تعرض النسخة المجانية إعلانات <strong>Google AdMob</strong>. وقد تجمع AdMob وشركاؤها معرّف الإعلانات في جهازك وعنوان IP ومعلومات الجهاز والاستخدام لعرض الإعلانات
+    (المخصصة أو غير المخصصة) وقياسها ومنع الاحتيال. <strong>لا تُشارَك رسائلك وجداولك مع المعلنين أبداً.</strong> تشرح Google معالجتها في
+    <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">سياسة مواقع الشركاء</a> و<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">سياسة خصوصية Google</a>.
+    وتُزال الإعلانات لمشتركي النسخة المميزة.
+  </p>
+
+  <h2>4. المشتريات والاشتراكات</h2>
+  <p>
+    تتم معالجة الشراء الدائم والاشتراكات الشهرية والسنوية عبر <strong>Google Play Billing</strong>، ولا تصلنا بيانات الدفع أبداً. يحتفظ التطبيق فقط بعلامة على جهازك
+    توضح هل الميزات المدفوعة مفعّلة، ويتحقق منها مع Google Play.
+  </p>
+
+  <h2>5. خدمات Google الأخرى</h2>
+  <p>
+    يستخدم التطبيق خدمة Google Play للتقييم داخل التطبيق، ومنصة Google لإدارة الموافقة (UMP) لطلب الموافقة على الإعلانات حيث يلزم ذلك.
+    ولا نستخدم أي أدوات تحليل أو تتبّع غير ما ورد في هذه السياسة.
+  </p>
+
+  <h2>6. النسخ الاحتياطي</h2>
+  <p>
+    إذا كان النسخ الاحتياطي في أندرويد مفعّلاً، لا تُضمَّن في نسخة جهازك الاحتياطية على حساب Google إلا <strong>إعداداتك وتعريفات جداولك</strong>.
+    وتُستثنى بيانات الرسائل المؤقتة، وبيانات منع التكرار، وحالة الشراء، ونماذج الذكاء الاصطناعي. أما ملفات Excel والملفات النصية في المجلد الذي اخترته فليست جزءاً من نسخة التطبيق الاحتياطية.
+  </p>
+
+  <h2>7. المشاركة والبيع</h2>
+  <p>
+    لا نبيع أي معلومات شخصية ولا نشارك رسائلك أو جداولك مع أحد. ولا تصل البيانات إلى أطراف أخرى إلا في الحالات الموضحة أعلاه:
+    معرّفات الإعلانات (AdMob في النسخة المجانية)، والمدفوعات (Google Play)، وحسابك في Google عند تفعيلك المزامنة.
+  </p>
+
+  <h2>8. خياراتك وحقوقك</h2>
+  <ul>
+    <li><strong>إيقاف الالتقاط:</strong> أوقف قراءة الإشعارات في WExcel أو ألغِ صلاحية الإشعارات من إعدادات أندرويد.</li>
+    <li><strong>حذف البيانات:</strong> احذف ملفات ‎.txt و‎.xlsx من مجلدك، وامسح بيانات التطبيق أو احذفه لإزالة كل ما يحفظه في تخزينه الخاص.</li>
+    <li><strong>Google Sheets:</strong> أوقف المزامنة أو افصل الحساب أو ألغِ الصلاحية كما في البند 2، واحذف الجداول المُزامَنة من Google Drive.</li>
+    <li><strong>الإعلانات (أوروبا والمملكة المتحدة):</strong> غيّر موافقتك أو اسحبها في أي وقت من <em>الإعدادات ← خيارات الخصوصية للإعلانات</em> داخل التطبيق.</li>
+    <li><strong>معرّف الإعلانات:</strong> أعد تعيينه أو احذفه من إعدادات أندرويد (الإعدادات ← Google ← الإعلانات، أو الإعدادات ← الخصوصية ← الإعلانات حسب جهازك).</li>
+  </ul>
+  <p>
+    <strong>اللائحة الأوروبية (GDPR):</strong> تتم المعالجة على جهازك لتقديم الميزات التي تستخدمها، وتعتمد الإعلانات على موافقتك عبر نموذج Google.
+    <strong>قوانين كاليفورنيا (CCPA/CPRA):</strong> لا نبيع المعلومات الشخصية ولا نشاركها للإعلانات السلوكية إلا معرّفات AdMob الموضحة أعلاه، ويمكنك تقييدها من إعدادات الإعلانات في جهازك.
+    ولأننا لا نحتفظ بأي نسخة من بيانات تطبيقك، يمكن تنفيذ معظم الطلبات مباشرة على جهازك؛ ولغير ذلك تواصل معنا.
+  </p>
+
+  <h2>9. الأمان</h2>
+  <p>
+    تبقى بيانات التطبيق في التخزين الخاص به داخل أندرويد، والاتصالات مع Google (Sheets وPlay وAdMob) مشفّرة عبر HTTPS. أما ملفات المجلد الذي تختاره فتحميها حماية جهازك،
+    فتجنّب اختيار مجلد تستطيع قراءته تطبيقات لا تثق بها.
+  </p>
+
+  <h2>10. مسؤوليتك عن رسائل الآخرين</h2>
+  <p>قد تحتوي الرسائل التي تلتقطها معلومات شخصية لأشخاص آخرين، فتأكد أنه مسموح لك بحفظها ومعالجتها وفق الأنظمة التي تنطبق عليك.</p>
+
+  <h2>11. الأطفال</h2>
+  <p>WExcel أداة أعمال وليس موجهاً للأطفال دون 13 عاماً، ولا نجمع بيانات الأطفال عن علم.</p>
+
+  <h2>12. التغييرات</h2>
+  <p>نحدّث هذه السياسة عند تغيّر التطبيق. يوضح تاريخ السريان أعلاه أحدث نسخة، ونعلن التغييرات المهمة داخل التطبيق أو في صفحة المتجر.</p>
+
+  <h2>13. التواصل</h2>
+  <p>للأسئلة أو الطلبات: <a href="mailto:mohammedalrehaili22@gmail.com">mohammedalrehaili22@gmail.com</a></p>
+</section>
+
+</main>
 </body>
 </html>
