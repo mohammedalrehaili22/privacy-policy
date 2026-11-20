@@ -18,11 +18,12 @@
     h3 { font-size: 1.02rem; margin: 18px 0 4px; }
     p, li { margin: 6px 0; }
     ul { padding-inline-start: 22px; }
-    a { color: var(--accent); }
+    a { color: var(--accent); overflow-wrap: anywhere; }
     .meta { color: var(--muted); margin: 0 0 18px; }
     .lang { display: flex; gap: 10px; margin: 0 0 24px; flex-wrap: wrap; }
     .lang a { padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; text-decoration: none; }
     .summary { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 14px 18px; }
+    .scroll { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: .95rem; }
     th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: start; vertical-align: top; }
     th { background: var(--card); }
@@ -38,52 +39,132 @@
 <!-- ============================== ENGLISH ============================== -->
 <section id="en" lang="en">
   <h1>Privacy Policy for WExcel</h1>
-  <p class="meta"><strong>Effective date:</strong> October 19, 2026 &nbsp;·&nbsp; Developer: Mohammed Alrehaili &nbsp;·&nbsp; App: WExcel (com.alrehaili.WExcel)</p>
+  <p class="meta"><strong>Effective date:</strong> November 20, 2026 &nbsp;·&nbsp; Developer: Mohammed Alrehaili &nbsp;·&nbsp; App: WExcel (com.alrehaili.WExcel)</p>
 
   <div class="summary">
     <strong>In short:</strong>
     <ul>
-      <li>WExcel turns your messages into Excel tables <strong>on your device</strong>. We do not run servers and never receive your messages or files.</li>
-      <li>Message content only leaves your phone if <strong>you</strong> turn on Google Sheets sync — and then it goes to <strong>your own</strong> Google account, not to us.</li>
+      <li>WExcel turns your messages into Excel tables <strong>on your device</strong>. We do not run servers and never receive your messages, tables or files.</li>
+      <li>Message content leaves your phone only through features <strong>you</strong> switch on, and only to the place you chose: your own Google account
+        (Google Sheets sync), the AI provider of the key you saved (cloud AI), a web address you entered (webhooks), automation apps you picked on your phone,
+        and the people your auto-replies answer.</li>
       <li>The free version shows ads from Google AdMob, which may use your device's advertising ID. Purchases are handled by Google Play.</li>
+      <li>You can stop any of these at any time, and delete everything by deleting your files and clearing the app's data.</li>
     </ul>
   </div>
 
-  <h2>1. Data WExcel processes</h2>
-  <h3>1.1 Notifications (optional, automatic mode)</h3>
+  <h2>1. Who we are and what this policy covers</h2>
+  <p>
+    WExcel is developed by Mohammed Alrehaili (“we”, “us”), who is responsible for the app and for this policy. It covers the WExcel Android app
+    and its home-screen widgets. Services you connect to WExcel (Google, the AI provider of your key, a webhook service, an automation app,
+    WhatsApp or other messaging apps) process data under their own terms and privacy policies, which we link to where useful.
+  </p>
+  <p>
+    Because WExcel works on your device and we receive none of your messages or tables, <strong>you</strong> decide what is captured, where it
+    is saved and where it is sent. When you use WExcel for your business, you are responsible for the personal data of your customers and
+    contacts that you process with it (see section 14).
+  </p>
+
+  <h2>2. Data WExcel processes</h2>
+  <h3>2.1 Notifications (optional, automatic mode)</h3>
   <p>
     If you grant notification access, Android delivers your device's notifications to WExcel. WExcel <strong>only uses notifications
     from the apps you add to your tables</strong> (for example WhatsApp, Telegram, Instagram or an email app) and ignores all others
-    without storing them. From those apps it reads the sender name, the message text (as shown in the notification, including messages
-    other people send you) and the time, and uses them only to fill your tables. You can revoke notification access at any time in
-    Android settings.
+    without storing them. From those apps it reads the sender name (or phone number, when the contact is not saved), the message text as shown
+    in the notification (including messages other people send you), the email subject for email apps, and the time, and uses them only to fill
+    your tables and run the features you switched on. You can revoke notification access at any time in Android settings.
   </p>
-  <h3>1.2 Files you share or pick</h3>
+  <h3>2.2 Files you share or pick</h3>
   <p>
     When you share an exported chat (.txt or .zip), a PDF or a text file with WExcel, or pick a folder, the app reads that content on
     your device to build the table. From a .zip export only the chat text is read; media attachments are not processed. Text in scanned
     PDFs is recognised on the device (ML Kit on-device text recognition).
   </p>
-  <h3>1.3 What is stored, and where</h3>
-  <table>
-    <tr><th>Data</th><th>Where it is stored</th></tr>
-    <tr><td>Captured messages (.txt) and generated Excel files (.xlsx)</td><td>The folder <strong>you choose</strong> on your device. Other apps you have given access to that folder may also be able to read it.</td></tr>
-    <tr><td>Table settings, keywords, preferences</td><td>App-private storage on your device.</td></tr>
-    <tr><td>Working caches (extracted rows for the dashboard and widget, duplicate-detection fingerprints, sync queue)</td><td>App-private storage. Duplicate-detection keeps only one-way hashes of messages (never the text), for up to 30 days.</td></tr>
-    <tr><td>Debug report (only when you request it)</td><td>A text file saved to your Downloads folder. It includes your settings, table definitions and recent app logs, and is sent to anyone only if you choose to share it.</td></tr>
-  </table>
-  <h3>1.4 On-device AI (optional)</h3>
+  <h3>2.3 On-device AI (optional)</h3>
   <p>
-    If you enable AI extraction, messages are analysed by a language model that runs <strong>on your device</strong> (a Gemma model you
-    import yourself, or Gemini Nano provided by Android's AICore). WExcel does not send message content to any AI service.
+    If you enable AI extraction without cloud AI, messages are analysed by a language model that runs <strong>on your device</strong> (a Gemma model,
+    or Gemini Nano provided by Android's AICore). This on-device AI sends nothing off your phone. If you choose to download the Gemma model, the link
+    opens in your browser and the file is downloaded from Hugging Face, which receives the usual technical data of a download (such as your IP address)
+    under <a href="https://huggingface.co/privacy" target="_blank" rel="noopener">its privacy policy</a>; WExcel sends it nothing else.
   </p>
-  <h3>1.5 Auto-reply (optional)</h3>
+  <h3>2.4 Cloud AI with your own key (optional, Premium)</h3>
   <p>
-    If you turn on auto-reply for a table, WExcel uses the reply action of the incoming notification to send the text you wrote to that
-    chat. Sending is rate-limited to avoid spam. It is off by default.
+    Cloud AI is <strong>off by default</strong>. If you switch it on in Settings and save an API key from Anthropic (Claude), OpenAI (ChatGPT) or
+    Google (Gemini), the following is sent from your phone <strong>directly to the provider you chose, under your own account</strong>:
+  </p>
+  <ul>
+    <li><strong>Setting up columns:</strong> when you tap “Suggest with AI”, only the sample message you pasted.</li>
+    <li><strong>Trying a table:</strong> when you use “Try with a message” in the table editor, only the sample sender and message you typed (WExcel asks
+      first and tells you how many requests it will send).</li>
+    <li><strong>Reading messages:</strong> for each table where <strong>you</strong> switch on cloud AI, the <strong>text</strong> of each new
+      message that table captures, one message per request, with the table's field names and notes. If you also switch on “Also send
+      the sender, app and time” for that table, the sender's name as shown in the notification (a phone number when the contact is not
+      saved), the app's name and the time it was sent go with each message; otherwise none of them is sent. Your other tables are
+      never sent. When you convert a file once for such a table, WExcel first tells you how many messages it will send and sends nothing unless
+      you agree. Tables without that switch are read on your device.</li>
+    <li><strong>Writing replies:</strong> for a table where <strong>you</strong> turn on both auto-reply and “Let the AI write the reply”
+      and that uses cloud AI, the message text, what was read from it and your reply instructions are sent in one more request, and the
+      reply the AI writes is sent to the person who wrote the message. The sender's name is sent too only when that table also sends the
+      sender, app and time; the app is never sent for this. A reply that mentions a number or link not found in your instructions or the
+      message is not sent.</li>
+  </ul>
+  <p>
+    WExcel has no server in between and never receives this content. Daily and per-minute request limits that you set apply; messages that cannot
+    be read yet (no connection, limit reached) wait on your device and are sent later. A message the AI fails to read three times is not sent again unless you change the model or the answer limit.
+  </p>
+  <ul>
+    <li>Because you use your own key, you have your own agreement with the provider. It processes what is sent under its terms and privacy policy
+      (<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic</a>,
+      <a href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noopener">OpenAI</a>,
+      <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Google Gemini API</a>), may keep it for a period those terms set,
+      and may charge your account. With a free (unpaid) Gemini key, Google may use what is sent to improve its products, and people at Google may
+      review it, so do not use a free key for messages that contain personal or confidential information.</li>
+    <li>The provider may process data in other countries, including the United States (see section 11).</li>
+    <li>Your key is stored on your device only, encrypted with an Android Keystore key. It is not backed up, exported, shared or written to logs or
+      debug reports.</li>
+    <li>AI output can be wrong. Check important values; tables can be set so you review what the AI read before it is saved.</li>
+    <li>You can stop at any time: switch cloud AI off for a table or for the app, or remove the key in Settings.</li>
+  </ul>
+  <h3>2.5 Auto-reply (optional)</h3>
+  <p>
+    Auto-reply is <strong>off by default</strong>. If you turn it on for a table, WExcel uses the reply action of the incoming notification to send the
+    text you wrote (or, if you chose it, a reply written by the AI as described in 2.3 and 2.4) to that chat. A loop guard limits how many replies one chat
+    can receive in a short time. Replies are sent from <strong>your</strong> messaging account, so you are responsible for them and for following that
+    app's rules (for example WhatsApp's terms on automated messages).
+  </p>
+  <h3>2.6 Webhooks (optional)</h3>
+  <p>
+    Webhooks are <strong>off by default</strong>. If you enter a web address (for example from Zapier, Make or your own server) for a table, WExcel sends each
+    new row of that table <strong>directly from your device to that address</strong> over HTTPS. Only the extracted row is sent, with the fields you kept
+    (which may include the sender's name and the message time) — never the raw notification. Whoever runs that address receives the rows and handles them
+    under its own terms; WExcel has no control over what it does with them. The address and its signing secret are stored encrypted on your device and are
+    not backed up or included in debug reports. Rows waiting to be delivered stay on your device. Turn webhooks off or remove the address to stop.
+  </p>
+  <h3>2.7 Automation apps (optional)</h3>
+  <p>
+    Automation is <strong>off by default</strong>. If you switch it on, apps such as Tasker or MacroDroid can send commands to WExcel (only with the command key
+    shown in the app), and WExcel can send events about new rows (the table name, the row's values, and the sender, time and message when the table records
+    them) <strong>only to the apps you picked</strong>, on your device. Those apps then handle the data under their own terms and may send it elsewhere if you
+    set them up to. Turn automation off or remove an app from the list to stop.
   </p>
 
-  <h2>2. Google Sheets sync (optional)</h2>
+  <h2>3. What is stored on your device, and for how long</h2>
+  <div class="scroll"><table>
+    <tr><th>Data</th><th>Where</th><th>How long</th></tr>
+    <tr><td>Captured messages (.txt) and generated Excel files (.xlsx)</td><td>The folder <strong>you choose</strong>. Other apps you have given access to that folder may be able to read it.</td><td>Until you delete them.</td></tr>
+    <tr><td>Table settings, keywords, reply texts and instructions, preferences</td><td>App-private storage</td><td>Until you change or delete them, or clear the app's data.</td></tr>
+    <tr><td>Rows read by the AI, and rows waiting for review</td><td>App-private storage (excluded from backups)</td><td>Until you delete the table or clear the app's data.</td></tr>
+    <tr><td>Rows for the dashboard and widgets; dashboard totals</td><td>App-private storage</td><td>Replaced as new rows arrive; removed when you clear the app's data.</td></tr>
+    <tr><td>Duplicate-detection fingerprints</td><td>App-private storage</td><td>One-way hashes only (never the text), kept for up to 30 days.</td></tr>
+    <tr><td>Capture log (the last 50 messages the capture looked at, with their text and what happened to each)</td><td>App-private storage</td><td>Older entries are removed as new ones arrive; you can clear it in the app.</td></tr>
+    <tr><td>Automation log (the last 60 commands and events)</td><td>App-private storage</td><td>Older entries are removed as new ones arrive; you can clear it in the app.</td></tr>
+    <tr><td>Queues for Google Sheets and webhooks</td><td>App-private storage</td><td>Until the rows are delivered, or the feature is turned off.</td></tr>
+    <tr><td>Cloud AI key, webhook addresses and secrets</td><td>App-private storage, encrypted with the Android Keystore</td><td>Until you remove them.</td></tr>
+    <tr><td>Cloud AI usage counters (numbers of requests only)</td><td>App-private storage</td><td>Day and month counters, reset as each period ends.</td></tr>
+    <tr><td>Debug report (only when you request it)</td><td>A text file in your Downloads folder. It includes your settings, table definitions (including sender filters you set) and recent app logs, but never your cloud AI key or webhook addresses.</td><td>Until you delete it. It is sent to anyone only if you choose to share it.</td></tr>
+  </table></div>
+
+  <h2>4. Google Sheets sync (optional)</h2>
   <p>
     Google Sheets sync is <strong>off by default</strong>. If you connect a Google account and turn sync on for a table:
   </p>
@@ -98,10 +179,10 @@
     <strong>Limited Use disclosure:</strong> WExcel's use and transfer of information received from Google APIs to any other app will
     adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>,
     including the Limited Use requirements. Data obtained through Google APIs is used only to provide the sync feature you turned on; it
-    is not used for advertising, not sold, and not read by humans.
+    is not used for advertising, not sold, not used to train AI models, and not read by humans.
   </p>
 
-  <h2>3. Advertising (free version)</h2>
+  <h2>5. Advertising (free version)</h2>
   <p>
     The free version shows ads from <strong>Google AdMob</strong>. AdMob and its partners may collect your device's advertising ID, IP
     address, device and usage information to show ads (personalized or not), measure them and prevent fraud. <strong>Your messages and
@@ -110,70 +191,118 @@
     <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>. Ads are removed for premium users.
   </p>
 
-  <h2>4. Purchases and subscriptions</h2>
+  <h2>6. Purchases, subscriptions and free trials</h2>
   <p>
-    The lifetime purchase and the monthly/yearly subscriptions are processed by <strong>Google Play Billing</strong>. We never receive your
-    payment details. The app keeps only a flag on your device recording whether premium features are unlocked, and checks it with
-    Google Play.
+    The lifetime purchase, the monthly and yearly subscriptions and any free trial are processed by <strong>Google Play Billing</strong>. We never receive
+    your payment details. The app keeps only a record on your device of whether premium features are unlocked, and checks it with Google Play. Manage or
+    cancel subscriptions in Google Play.
   </p>
 
-  <h2>5. Other Google services</h2>
+  <h2>7. Other Google services</h2>
   <p>
     The app uses Google Play In-App Review to let you rate it, and the Google User Messaging Platform to ask for ad consent where required.
-    We do not use any analytics or tracking SDKs besides those described in this policy.
+    We do not use any analytics, crash-reporting or tracking SDKs besides those described in this policy.
   </p>
 
-  <h2>6. Backups</h2>
+  <h2>8. Backups</h2>
   <p>
-    If Android backup is enabled on your device, only your <strong>settings and table definitions</strong> are included in your device's
-    backup to your Google account. Message caches, duplicate-detection data, purchase status and AI models are excluded. The Excel and
-    text files in your chosen folder are not part of the app backup.
+    If Android backup is enabled on your device, only your <strong>settings, table definitions and dashboard totals</strong> are included in your device's
+    backup to your Google account (and in a transfer to a new phone). Message caches, rows read by the AI, logs, duplicate-detection data, queues, purchase
+    status, AI models, your cloud AI key and webhook addresses are excluded. The Excel and text files in your chosen folder are not part of the app backup.
   </p>
 
-  <h2>7. Sharing and selling</h2>
+  <h2>9. Who receives data</h2>
+  <p>We do not sell personal information and we do not receive or share your messages or tables. Data reaches others only in these cases:</p>
+  <div class="scroll"><table>
+    <tr><th>Recipient</th><th>What</th><th>When</th></tr>
+    <tr><td>Google (AdMob, UMP)</td><td>Advertising ID, IP address, device and ad-interaction data</td><td>Free version</td></tr>
+    <tr><td>Google Play</td><td>Purchase and subscription details</td><td>When you buy or subscribe</td></tr>
+    <tr><td>Your Google account (Sheets, Drive)</td><td>The rows of synced tables</td><td>When you turn on sync</td></tr>
+    <tr><td>Anthropic, OpenAI or Google (the provider of your key)</td><td>As described in section 2.4</td><td>When you use cloud AI</td></tr>
+    <tr><td>The web address you entered</td><td>The rows of that table</td><td>When you turn on webhooks</td></tr>
+    <tr><td>Automation apps you picked</td><td>Row events</td><td>When you turn on automation</td></tr>
+    <tr><td>The people who message you</td><td>Your auto-replies</td><td>When you turn on auto-reply</td></tr>
+    <tr><td>Authorities</td><td>Only what we hold (in practice, support emails)</td><td>If required by law</td></tr>
+  </table></div>
+
+  <h2>10. Legal bases (EEA, UK and similar laws)</h2>
+  <ul>
+    <li><strong>Providing the app and the features you switch on</strong> (capture, tables, AI, sync, webhooks, automation, replies): performance of our
+      agreement with you (the app's terms), and your choice to turn each feature on.</li>
+    <li><strong>Personalized ads:</strong> your consent, collected through Google's consent form where required. Non-personalized ads and fraud prevention:
+      our legitimate interest in funding the free version.</li>
+    <li><strong>Purchases:</strong> performance of the purchase contract, and legal obligations (for example tax records kept by Google Play).</li>
+    <li><strong>Support emails:</strong> our legitimate interest in answering you.</li>
+  </ul>
   <p>
-    We do not sell personal information and we do not share your messages or tables with anyone. Data only reaches third parties in the
-    cases described above: advertising identifiers (AdMob, free version), payments (Google Play), and your own Google account when you
-    turn on Google Sheets sync.
+    For messages from other people that you process with WExcel for your business, you are the one who decides why and how they are processed, and you
+    need your own legal basis for it (see section 14).
   </p>
 
-  <h2>8. Your choices and rights</h2>
+  <h2>11. International transfers</h2>
+  <p>
+    Google, Anthropic and OpenAI may process data in the United States and other countries. When you turn on a feature that sends data to them, the data
+    goes from your device to that service under its own terms, which include its safeguards for international transfers (such as standard contractual
+    clauses). Webhooks and automation apps send data wherever their operators process it.
+  </p>
+
+  <h2>12. Your choices and rights</h2>
   <ul>
     <li><strong>Stop capturing:</strong> turn off notification reading in WExcel or revoke notification access in Android settings.</li>
-    <li><strong>Delete data:</strong> delete the .txt and .xlsx files in your folder; clear the app's data or uninstall WExcel to remove everything it stores privately.</li>
-    <li><strong>Google Sheets:</strong> turn off sync, disconnect, or revoke access as described in section 2; delete synced spreadsheets in Google Drive.</li>
+    <li><strong>Stop sending:</strong> turn off cloud AI, Google Sheets sync, webhooks, automation or auto-reply for a table or for the app.</li>
+    <li><strong>Delete data:</strong> delete the .txt and .xlsx files in your folder; delete a table to remove its AI rows; clear the app's data or uninstall
+      WExcel to remove everything it stores privately.</li>
+    <li><strong>Google Sheets:</strong> turn off sync, disconnect, or revoke access as described in section 4; delete synced spreadsheets in Google Drive.</li>
+    <li><strong>Cloud AI providers:</strong> ask the provider of your key about data it keeps, using its own account settings or privacy contact.</li>
     <li><strong>Ads (EEA/UK):</strong> change or withdraw consent at any time from <em>Settings → Ad privacy choices</em> in the app.</li>
     <li><strong>Advertising ID:</strong> reset or delete it in Android settings (Settings → Google → Ads, or Settings → Privacy → Ads, depending on your device).</li>
   </ul>
   <p>
-    <strong>GDPR (EEA/UK):</strong> processing on your device is done to provide the features you use; advertising relies on your consent
-    collected through Google's consent form. <strong>CCPA/CPRA (California):</strong> we do not sell or share personal information for
-    cross-context behavioral advertising beyond the AdMob identifiers described above, which you can limit through your device's ad settings.
-    Because we hold no copy of your app data, most requests can be completed directly on your device; for anything else, contact us.
+    Depending on where you live (for example under the GDPR in the EEA, the UK GDPR, or the CCPA/CPRA in California),
+    you may have the right to access, correct, delete, restrict or object to the processing of your personal data, to receive a copy of it, to withdraw
+    consent at any time without affecting earlier processing, and not to be treated differently for using these rights. Because we hold no copy of your app
+    data, most requests can be completed directly on your device; for anything else, contact us (section 18). We answer within the time the law requires,
+    usually one month. You can also complain to your data protection authority (for example your EU supervisory authority or the UK ICO).
   </p>
-
-  <h2>9. Security</h2>
   <p>
-    App data stays in Android's app-private storage. Connections to Google (Sheets, Play, AdMob) use encrypted HTTPS. Files in the folder
-    you choose are protected by your device's security; avoid choosing a folder that other apps you do not trust can read.
+    <strong>California:</strong> we do not sell personal information. The only “sharing” for cross-context behavioral advertising is the AdMob advertising
+    identifiers described in section 5, which you can limit with <em>Ad privacy choices</em> and your device's ad settings.
   </p>
 
-  <h2>10. Your responsibility for others' messages</h2>
+  <h2>13. Automated processing</h2>
   <p>
-    Messages you capture may contain other people's personal information. Make sure you are allowed to store and process it under the
-    laws that apply to you.
+    WExcel uses rules and AI to fill your tables and, if you choose, to write replies. It does not make decisions about you that have legal or similarly
+    significant effects. What is done with the results (for example accepting an order) is decided by you.
   </p>
 
-  <h2>11. Children</h2>
-  <p>WExcel is a business tool and is not directed to children under 13. We do not knowingly collect data from children.</p>
+  <h2>14. Your responsibility for others' messages</h2>
+  <p>
+    Messages you capture contain other people's personal information, and auto-replies are sent to them. When you use WExcel, especially for a business,
+    make sure you are allowed to collect, store, send (for example to a cloud AI provider or webhook) and reply to those messages under the laws that apply to
+    you, tell your contacts where the law requires it, and keep the files you create secure. Do not use WExcel for messages you are not allowed to process.
+  </p>
 
-  <h2>12. Changes</h2>
+  <h2>15. Security</h2>
+  <p>
+    App data stays in Android's app-private storage. Connections to Google, the AI providers and webhook addresses use encrypted HTTPS (webhooks accept only
+    HTTPS addresses). Your cloud AI key and webhook secrets are encrypted with keys kept in the Android Keystore. Files in the folder you choose are protected
+    by your device's security; avoid choosing a folder that apps you do not trust can read, and protect your phone with a screen lock. No method is completely
+    secure, but we work to protect the data the app handles.
+  </p>
+
+  <h2>16. Children</h2>
+  <p>
+    WExcel is a business tool and is not directed to children under 13 (or the higher age set by the law where you live, such as 16 in some EEA countries).
+    We do not knowingly collect data from children. If you believe a child has used the app to send us information, contact us and we will delete it.
+  </p>
+
+  <h2>17. Changes</h2>
   <p>
     We update this policy when the app changes. The effective date above shows the latest version, and important changes are announced in
-    the app or on the store listing.
+    the app or on the store listing before they take effect.
   </p>
 
-  <h2>13. Contact</h2>
+  <h2>18. Contact</h2>
   <p>
     Questions or requests: <a href="mailto:mohammedalrehaili22@gmail.com">mohammedalrehaili22@gmail.com</a>
   </p>
@@ -184,48 +313,120 @@
 <!-- ============================== ARABIC ============================== -->
 <section id="ar" lang="ar" class="rtl">
   <h1>سياسة الخصوصية لتطبيق WExcel</h1>
-  <p class="meta"><strong>تاريخ السريان:</strong> 19 أكتوبر 2026 &nbsp;·&nbsp; المطوّر: محمد الرحيلي &nbsp;·&nbsp; التطبيق: WExcel (com.alrehaili.WExcel)</p>
+  <p class="meta"><strong>تاريخ السريان:</strong> 20 نوفمبر 2026 &nbsp;·&nbsp; المطوّر: محمد الرحيلي &nbsp;·&nbsp; التطبيق: WExcel (com.alrehaili.WExcel)</p>
 
   <div class="summary">
     <strong>باختصار:</strong>
     <ul>
-      <li>يحوّل WExcel رسائلك إلى جداول Excel <strong>على جهازك</strong>. ليس لدينا خوادم، ولا تصلنا رسائلك أو ملفاتك أبداً.</li>
-      <li>لا يغادر محتوى الرسائل جوالك إلا إذا فعّلت <strong>أنت</strong> المزامنة مع Google Sheets، وحينها يذهب إلى <strong>حساب Google الخاص بك</strong> لا إلينا.</li>
+      <li>يحوّل WExcel رسائلك إلى جداول Excel <strong>على جهازك</strong>. ليس لدينا خوادم، ولا تصلنا رسائلك أو جداولك أو ملفاتك أبداً.</li>
+      <li>لا يغادر محتوى الرسائل جوالك إلا عبر ميزات تفعّلها <strong>أنت</strong>، وإلى المكان الذي اخترته فقط: حسابك في Google (المزامنة مع Google Sheets)،
+        ومزوّد الذكاء الاصطناعي صاحب المفتاح الذي حفظته (الذكاء السحابي)، وعنوان ويب أدخلته (Webhooks)، وتطبيقات الأتمتة التي اخترتها على جوالك،
+        والأشخاص الذين تصلهم ردودك التلقائية.</li>
       <li>تعرض النسخة المجانية إعلانات Google AdMob التي قد تستخدم معرّف الإعلانات في جهازك. وتتم المشتريات عبر Google Play.</li>
+      <li>يمكنك إيقاف أي من ذلك في أي وقت، وحذف كل شيء بحذف ملفاتك ومسح بيانات التطبيق.</li>
     </ul>
   </div>
 
-  <h2>1. البيانات التي يعالجها WExcel</h2>
-  <h3>1.1 الإشعارات (اختياري، في الوضع التلقائي)</h3>
+  <h2>1. من نحن وما الذي تشمله هذه السياسة</h2>
+  <p>
+    يطوّر تطبيق WExcel محمد الرحيلي ("نحن")، وهو المسؤول عن التطبيق وعن هذه السياسة. وتشمل السياسة تطبيق WExcel لأندرويد وأدوات الشاشة الرئيسية (الودجت).
+    أما الخدمات التي تربطها بـ WExcel (Google، ومزوّد الذكاء الاصطناعي صاحب مفتاحك، وخدمة Webhook، وتطبيقات الأتمتة، وواتساب وتطبيقات المراسلة الأخرى)
+    فتعالج البيانات وفق شروطها وسياسات خصوصيتها، ونضع روابطها حيث يفيد ذلك.
+  </p>
+  <p>
+    ولأن WExcel يعمل على جهازك ولا تصلنا رسائلك أو جداولك، فأنت من يقرر ما يُلتقط وأين يُحفظ وإلى أين يُرسل. وعندما تستخدم WExcel في عملك
+    فأنت المسؤول عن البيانات الشخصية لعملائك وجهات اتصالك التي تعالجها به (انظر البند 14).
+  </p>
+
+  <h2>2. البيانات التي يعالجها WExcel</h2>
+  <h3>2.1 الإشعارات (اختياري، في الوضع التلقائي)</h3>
   <p>
     إذا منحت صلاحية قراءة الإشعارات، يرسل أندرويد إشعارات جهازك إلى WExcel. ويستخدم WExcel <strong>إشعارات التطبيقات التي تضيفها إلى جداولك فقط</strong>
-    (مثل واتساب أو تيليجرام أو إنستغرام أو تطبيق بريد) ويتجاهل غيرها دون حفظها. ومن هذه التطبيقات يقرأ اسم المرسل ونص الرسالة كما يظهر في الإشعار
-    (بما في ذلك رسائل الآخرين إليك) ووقتها، ويستخدمها لتعبئة جداولك فقط. يمكنك إلغاء الصلاحية في أي وقت من إعدادات أندرويد.
+    (مثل واتساب أو تيليجرام أو إنستغرام أو تطبيق بريد) ويتجاهل غيرها دون حفظها. ومن هذه التطبيقات يقرأ اسم المرسل (أو رقمه إذا لم تكن جهة الاتصال محفوظة)
+    ونص الرسالة كما يظهر في الإشعار (بما في ذلك رسائل الآخرين إليك) وعنوان الرسالة في تطبيقات البريد ووقتها، ويستخدمها فقط لتعبئة جداولك وتشغيل الميزات التي فعّلتها.
+    يمكنك إلغاء الصلاحية في أي وقت من إعدادات أندرويد.
   </p>
-  <h3>1.2 الملفات التي تشاركها أو تختارها</h3>
+  <h3>2.2 الملفات التي تشاركها أو تختارها</h3>
   <p>
     عند مشاركة محادثة مُصدَّرة (‎.txt أو ‎.zip) أو ملف PDF أو ملف نصي مع WExcel، أو عند اختيار مجلد، يقرأ التطبيق محتواه على جهازك لبناء الجدول.
     من ملفات ‎.zip يُقرأ نص المحادثة فقط ولا تُعالَج الوسائط المرفقة. ويتم التعرف على النص في ملفات PDF الممسوحة ضوئياً على الجهاز نفسه (ML Kit).
   </p>
-  <h3>1.3 ما يُحفظ وأين</h3>
-  <table>
-    <tr><th>البيانات</th><th>مكان الحفظ</th></tr>
-    <tr><td>الرسائل الملتقطة (‎.txt) وملفات Excel الناتجة (‎.xlsx)</td><td>المجلد <strong>الذي تختاره</strong> على جهازك. قد تتمكن التطبيقات الأخرى التي منحتها صلاحية هذا المجلد من قراءته.</td></tr>
-    <tr><td>إعدادات الجداول والكلمات المفتاحية والتفضيلات</td><td>التخزين الخاص بالتطبيق على جهازك.</td></tr>
-    <tr><td>بيانات تشغيل مؤقتة (صفوف لوحة الإحصائيات والودجت، وبصمات منع التكرار، وقائمة انتظار المزامنة)</td><td>التخزين الخاص بالتطبيق. بصمات منع التكرار تحفظ قيمة مشفّرة باتجاه واحد فقط (وليس نص الرسالة) لمدة أقصاها 30 يوماً.</td></tr>
-    <tr><td>تقرير التشخيص (عند طلبك فقط)</td><td>ملف نصي في مجلد التنزيلات، يحتوي إعداداتك وتعريفات الجداول وسجلات التطبيق الأخيرة، ولا يُرسَل لأحد إلا إذا اخترت مشاركته.</td></tr>
-  </table>
-  <h3>1.4 الذكاء الاصطناعي على الجهاز (اختياري)</h3>
+  <h3>2.3 الذكاء الاصطناعي على الجهاز (اختياري)</h3>
   <p>
-    إذا فعّلت الاستخراج بالذكاء الاصطناعي، تُحلَّل الرسائل بنموذج لغوي يعمل <strong>على جهازك</strong> (نموذج Gemma تستورده بنفسك، أو Gemini Nano عبر خدمة AICore في أندرويد).
-    لا يرسل WExcel محتوى الرسائل إلى أي خدمة ذكاء اصطناعي.
+    إذا فعّلت الاستخراج بالذكاء الاصطناعي دون الذكاء السحابي، تُحلَّل الرسائل بنموذج لغوي يعمل <strong>على جهازك</strong> (نموذج Gemma، أو Gemini Nano عبر خدمة AICore في أندرويد).
+    ولا يُرسل هذا الذكاء الاصطناعي المحلي أي شيء خارج جوالك. وإذا اخترت تنزيل نموذج Gemma، يُفتح الرابط في متصفحك ويُنزَّل الملف من Hugging Face، الذي يتلقى
+    البيانات التقنية المعتادة لأي تنزيل (مثل عنوان IP) وفق <a href="https://huggingface.co/privacy" target="_blank" rel="noopener">سياسة خصوصيته</a>، ولا يرسل له WExcel أي شيء آخر.
   </p>
-  <h3>1.5 الرد التلقائي (اختياري)</h3>
+  <h3>2.4 الذكاء الاصطناعي السحابي بمفتاحك الخاص (اختياري، ميزة مميزة)</h3>
   <p>
-    إذا فعّلت الرد التلقائي لجدول ما، يستخدم WExcel زر الرد في الإشعار الوارد لإرسال النص الذي كتبته أنت إلى تلك المحادثة، مع حدّ لعدد الردود لمنع الإزعاج. الميزة متوقفة افتراضياً.
+    هذه الميزة <strong>متوقفة افتراضياً</strong>. إذا فعّلتها من الإعدادات وحفظت مفتاح API من Anthropic (Claude) أو OpenAI (ChatGPT) أو Google (Gemini)،
+    يُرسل ما يلي من جوالك <strong>مباشرة إلى المزوّد الذي اخترته، على حسابك أنت</strong>:
+  </p>
+  <ul>
+    <li><strong>إعداد الأعمدة:</strong> عند الضغط على "اقتراح بالذكاء الاصطناعي"، رسالة المثال التي لصقتها فقط.</li>
+    <li><strong>تجربة الجدول:</strong> عند استخدام "جرّب برسالة" في محرر الجدول، اسم المرسل والرسالة التجريبيان اللذان كتبتهما فقط (ويسألك WExcel أولاً ويخبرك بعدد الطلبات التي سيرسلها).</li>
+    <li><strong>قراءة الرسائل:</strong> في كل جدول تفعّل <strong>أنت</strong> فيه الذكاء الاصطناعي السحابي، يُرسل <strong>نص</strong> كل رسالة جديدة يلتقطها
+      ذلك الجدول، رسالة واحدة في كل طلب، مع أسماء حقول الجدول وملاحظاته. وإذا فعّلت أيضاً خيار "إرسال اسم المرسل والتطبيق والوقت أيضًا" لذلك الجدول،
+      يُرسل مع كل رسالة اسم المرسل كما يظهر في الإشعار (ويكون رقم جوال إذا لم تكن جهة الاتصال محفوظة) واسم التطبيق ووقت الإرسال؛ وإلا فلا يُرسل شيء منها.
+      ولا تُرسل جداولك الأخرى أبداً. وعند تحويل ملف مرة واحدة لجدول كهذا، يخبرك WExcel أولاً بعدد الرسائل التي سيرسلها ولا يرسل شيئاً إلا بموافقتك.
+      أما الجداول التي لم تفعّل فيها هذا الخيار فتُقرأ على جهازك.</li>
+    <li><strong>كتابة الردود:</strong> في الجدول الذي تفعّل <strong>أنت</strong> فيه الرد التلقائي وخيار "اجعل الذكاء يكتب الرد" ويستعمل الذكاء السحابي،
+      يُرسل نص الرسالة وما قُرئ منها وتعليمات الرد في طلب إضافي، ويُرسل الرد الذي يكتبه الذكاء إلى صاحب الرسالة. ولا يُرسل اسم المرسل إلا إذا كان الجدول يرسل أيضاً
+      المرسل والتطبيق والوقت، ولا يُرسل التطبيق لهذا الغرض أبداً. ولا يُرسل أي رد يذكر رقماً أو رابطاً غير موجود في تعليماتك أو في الرسالة.</li>
+  </ul>
+  <p>
+    لا يوجد خادم لـ WExcel في المنتصف ولا يصلنا هذا المحتوى. وتُطبَّق حدود يومية وحدود في الدقيقة للطلبات تحددها أنت، والرسائل التي لم تُقرأ بعد (لعدم وجود اتصال
+    أو لبلوغ الحد) تنتظر على جهازك وتُرسل لاحقاً. والرسالة التي يفشل الذكاء في قراءتها ثلاث مرات لا تُرسل مجدداً إلا إذا غيّرت النموذج أو حد الإجابة.
+  </p>
+  <ul>
+    <li>لأنك تستخدم مفتاحك الخاص، فبينك وبين المزوّد اتفاق مستقل. ويعالج المزوّد ما يُرسل وفق شروطه وسياسة خصوصيته
+      (<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic</a>،
+      <a href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noopener">OpenAI</a>،
+      <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Google Gemini API</a>)، وقد يحتفظ به للمدة التي تحددها تلك الشروط،
+      وقد يحتسب التكلفة على حسابك. ومع مفتاح Gemini المجاني (غير المدفوع) قد تستخدم Google ما يُرسل لتحسين منتجاتها وقد يطّلع عليه موظفون لديها،
+      فلا تستخدم مفتاحاً مجانياً لرسائل فيها معلومات شخصية أو سرية.</li>
+    <li>قد يعالج المزوّد البيانات في دول أخرى، منها الولايات المتحدة (انظر البند 11).</li>
+    <li>يُحفظ مفتاحك على جهازك فقط، مشفّراً بمفتاح من Android Keystore، ولا يدخل في النسخ الاحتياطي أو التصدير ولا يُشارك ولا يُكتب في السجلات أو تقارير التشخيص.</li>
+    <li>قد يخطئ الذكاء الاصطناعي، فراجع القيم المهمة. ويمكن ضبط الجداول بحيث تراجع ما قرأه الذكاء قبل حفظه.</li>
+    <li>يمكنك الإيقاف في أي وقت: أوقف الذكاء السحابي لجدول أو للتطبيق كله، أو أزل المفتاح من الإعدادات.</li>
+  </ul>
+  <h3>2.5 الرد التلقائي (اختياري)</h3>
+  <p>
+    الرد التلقائي <strong>متوقف افتراضياً</strong>. إذا فعّلته لجدول ما، يستخدم WExcel زر الرد في الإشعار الوارد لإرسال النص الذي كتبته أنت (أو رداً يكتبه الذكاء
+    إذا اخترت ذلك كما في البندين 2.3 و2.4) إلى تلك المحادثة. ويحدّ حارس التكرار من عدد الردود التي تصل محادثة واحدة في وقت قصير. وتُرسل الردود من حسابك
+    <strong>أنت</strong> في تطبيق المراسلة، فأنت المسؤول عنها وعن الالتزام بقواعد ذلك التطبيق (مثل شروط واتساب بشأن الرسائل الآلية).
+  </p>
+  <h3>2.6 Webhooks (اختياري)</h3>
+  <p>
+    هذه الميزة <strong>متوقفة افتراضياً</strong>. إذا أدخلت عنوان ويب لجدول ما (مثلاً من Zapier أو Make أو خادمك الخاص)، يرسل WExcel كل صف جديد في ذلك الجدول
+    <strong>من جهازك إلى ذلك العنوان مباشرة</strong> عبر HTTPS. ولا يُرسل إلا الصف المستخرج بالحقول التي أبقيتها (وقد تشمل اسم المرسل ووقت الرسالة)، ولا يُرسل نص الإشعار الخام أبداً.
+    ويتلقى صاحب ذلك العنوان الصفوف ويتعامل معها وفق شروطه، ولا يتحكم WExcel فيما يفعله بها. ويُحفظ العنوان ومفتاح التوقيع مشفّرين على جهازك، ولا يدخلان في النسخ
+    الاحتياطي أو تقارير التشخيص. والصفوف التي تنتظر التسليم تبقى على جهازك. أوقف الميزة أو احذف العنوان لإيقاف الإرسال.
+  </p>
+  <h3>2.7 تطبيقات الأتمتة (اختياري)</h3>
+  <p>
+    الأتمتة <strong>متوقفة افتراضياً</strong>. إذا فعّلتها، تستطيع تطبيقات مثل Tasker أو MacroDroid إرسال أوامر إلى WExcel (بمفتاح الأوامر الظاهر في التطبيق فقط)،
+    ويستطيع WExcel إرسال أحداث عن الصفوف الجديدة (اسم الجدول وقيم الصف، والمرسل والوقت والرسالة إذا كان الجدول يسجلها) <strong>إلى التطبيقات التي اخترتها فقط</strong>
+    على جهازك. وتتعامل هذه التطبيقات مع البيانات وفق شروطها، وقد ترسلها إلى أماكن أخرى إذا ضبطتها على ذلك. أوقف الأتمتة أو احذف التطبيق من القائمة لإيقاف ذلك.
   </p>
 
-  <h2>2. المزامنة مع Google Sheets (اختيارية)</h2>
+  <h2>3. ما يُحفظ على جهازك، ولأي مدة</h2>
+  <div class="scroll"><table>
+    <tr><th>البيانات</th><th>مكان الحفظ</th><th>المدة</th></tr>
+    <tr><td>الرسائل الملتقطة (‎.txt) وملفات Excel الناتجة (‎.xlsx)</td><td>المجلد <strong>الذي تختاره</strong>. قد تتمكن التطبيقات الأخرى التي منحتها صلاحية هذا المجلد من قراءته.</td><td>حتى تحذفها.</td></tr>
+    <tr><td>إعدادات الجداول والكلمات المفتاحية ونصوص الردود وتعليماتها والتفضيلات</td><td>التخزين الخاص بالتطبيق</td><td>حتى تغيّرها أو تحذفها أو تمسح بيانات التطبيق.</td></tr>
+    <tr><td>الصفوف التي قرأها الذكاء، والصفوف التي تنتظر المراجعة</td><td>التخزين الخاص بالتطبيق (خارج النسخ الاحتياطي)</td><td>حتى تحذف الجدول أو تمسح بيانات التطبيق.</td></tr>
+    <tr><td>صفوف لوحة الإحصائيات والودجت، ومجاميع اللوحة</td><td>التخزين الخاص بالتطبيق</td><td>تُستبدل بوصول صفوف جديدة، وتُحذف عند مسح بيانات التطبيق.</td></tr>
+    <tr><td>بصمات منع التكرار</td><td>التخزين الخاص بالتطبيق</td><td>قيم مشفّرة باتجاه واحد فقط (وليس نص الرسالة)، لمدة أقصاها 30 يوماً.</td></tr>
+    <tr><td>سجل الالتقاط (آخر 50 رسالة فحصها الالتقاط، مع نصها وما حدث لكل منها)</td><td>التخزين الخاص بالتطبيق</td><td>تُحذف الأقدم بوصول الجديد، ويمكنك مسحه من التطبيق.</td></tr>
+    <tr><td>سجل الأتمتة (آخر 60 أمراً وحدثاً)</td><td>التخزين الخاص بالتطبيق</td><td>تُحذف الأقدم بوصول الجديد، ويمكنك مسحه من التطبيق.</td></tr>
+    <tr><td>قوائم انتظار Google Sheets وWebhooks</td><td>التخزين الخاص بالتطبيق</td><td>حتى تُسلَّم الصفوف أو تُوقف الميزة.</td></tr>
+    <tr><td>مفتاح الذكاء السحابي وعناوين Webhook ومفاتيحها السرية</td><td>التخزين الخاص بالتطبيق، مشفّرة بـ Android Keystore</td><td>حتى تزيلها.</td></tr>
+    <tr><td>عدّادات استخدام الذكاء السحابي (أعداد الطلبات فقط)</td><td>التخزين الخاص بالتطبيق</td><td>عدّادات يومية وشهرية تُصفَّر بانتهاء كل فترة.</td></tr>
+    <tr><td>تقرير التشخيص (عند طلبك فقط)</td><td>ملف نصي في مجلد التنزيلات، يحتوي إعداداتك وتعريفات الجداول (بما فيها فلاتر المرسلين التي ضبطتها) وسجلات التطبيق الأخيرة، ولا يحتوي أبداً مفتاح الذكاء السحابي أو عناوين Webhook.</td><td>حتى تحذفه، ولا يُرسَل لأحد إلا إذا اخترت مشاركته.</td></tr>
+  </table></div>
+
+  <h2>4. المزامنة مع Google Sheets (اختيارية)</h2>
   <p>المزامنة <strong>متوقفة افتراضياً</strong>. إذا ربطت حساب Google وفعّلت المزامنة لجدول ما:</p>
   <ul>
     <li>يطلب WExcel من Google صلاحية <code>drive.file</code> فقط، وهي تسمح له بالوصول إلى <strong>جداول البيانات التي ينشئها هو فقط</strong>، لا إلى بقية ملفاتك في Google Drive.</li>
@@ -237,10 +438,10 @@
   <p>
     <strong>إفصاح الاستخدام المحدود:</strong> يلتزم WExcel في استخدام المعلومات التي يتلقاها من واجهات Google ونقلها إلى أي تطبيق آخر
     بـ <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">سياسة بيانات مستخدمي خدمات Google API</a>، بما فيها متطلبات الاستخدام المحدود (Limited Use).
-    تُستخدم هذه البيانات فقط لتقديم ميزة المزامنة التي فعّلتها، ولا تُستخدم للإعلانات، ولا تُباع، ولا يطّلع عليها أحد.
+    تُستخدم هذه البيانات فقط لتقديم ميزة المزامنة التي فعّلتها، ولا تُستخدم للإعلانات، ولا تُباع، ولا تُستخدم لتدريب نماذج الذكاء الاصطناعي، ولا يطّلع عليها أحد.
   </p>
 
-  <h2>3. الإعلانات (النسخة المجانية)</h2>
+  <h2>5. الإعلانات (النسخة المجانية)</h2>
   <p>
     تعرض النسخة المجانية إعلانات <strong>Google AdMob</strong>. وقد تجمع AdMob وشركاؤها معرّف الإعلانات في جهازك وعنوان IP ومعلومات الجهاز والاستخدام لعرض الإعلانات
     (المخصصة أو غير المخصصة) وقياسها ومنع الاحتيال. <strong>لا تُشارَك رسائلك وجداولك مع المعلنين أبداً.</strong> تشرح Google معالجتها في
@@ -248,60 +449,108 @@
     وتُزال الإعلانات لمشتركي النسخة المميزة.
   </p>
 
-  <h2>4. المشتريات والاشتراكات</h2>
+  <h2>6. المشتريات والاشتراكات والتجربة المجانية</h2>
   <p>
-    تتم معالجة الشراء الدائم والاشتراكات الشهرية والسنوية عبر <strong>Google Play Billing</strong>، ولا تصلنا بيانات الدفع أبداً. يحتفظ التطبيق فقط بعلامة على جهازك
-    توضح هل الميزات المدفوعة مفعّلة، ويتحقق منها مع Google Play.
+    تتم معالجة الشراء الدائم والاشتراكات الشهرية والسنوية وأي تجربة مجانية عبر <strong>Google Play Billing</strong>، ولا تصلنا بيانات الدفع أبداً. يحتفظ التطبيق فقط بسجل على جهازك
+    يوضح هل الميزات المدفوعة مفعّلة، ويتحقق منه مع Google Play. ويمكنك إدارة الاشتراكات أو إلغاؤها من Google Play.
   </p>
 
-  <h2>5. خدمات Google الأخرى</h2>
+  <h2>7. خدمات Google الأخرى</h2>
   <p>
     يستخدم التطبيق خدمة Google Play للتقييم داخل التطبيق، ومنصة Google لإدارة الموافقة (UMP) لطلب الموافقة على الإعلانات حيث يلزم ذلك.
-    ولا نستخدم أي أدوات تحليل أو تتبّع غير ما ورد في هذه السياسة.
+    ولا نستخدم أي أدوات تحليل أو تقارير أعطال أو تتبّع غير ما ورد في هذه السياسة.
   </p>
 
-  <h2>6. النسخ الاحتياطي</h2>
+  <h2>8. النسخ الاحتياطي</h2>
   <p>
-    إذا كان النسخ الاحتياطي في أندرويد مفعّلاً، لا تُضمَّن في نسخة جهازك الاحتياطية على حساب Google إلا <strong>إعداداتك وتعريفات جداولك</strong>.
-    وتُستثنى بيانات الرسائل المؤقتة، وبيانات منع التكرار، وحالة الشراء، ونماذج الذكاء الاصطناعي. أما ملفات Excel والملفات النصية في المجلد الذي اخترته فليست جزءاً من نسخة التطبيق الاحتياطية.
+    إذا كان النسخ الاحتياطي في أندرويد مفعّلاً، لا تُضمَّن في نسخة جهازك الاحتياطية على حساب Google (وعند النقل إلى جوال جديد) إلا <strong>إعداداتك وتعريفات جداولك ومجاميع لوحة الإحصائيات</strong>.
+    وتُستثنى بيانات الرسائل المؤقتة، والصفوف التي قرأها الذكاء، والسجلات، وبيانات منع التكرار، وقوائم الانتظار، وحالة الشراء، ونماذج الذكاء الاصطناعي، ومفتاح الذكاء السحابي، وعناوين Webhook.
+    أما ملفات Excel والملفات النصية في المجلد الذي اخترته فليست جزءاً من نسخة التطبيق الاحتياطية.
   </p>
 
-  <h2>7. المشاركة والبيع</h2>
+  <h2>9. من يتلقى البيانات</h2>
+  <p>لا نبيع أي معلومات شخصية، ولا تصلنا رسائلك أو جداولك ولا نشاركها. ولا تصل البيانات إلى غيرك إلا في الحالات التالية:</p>
+  <div class="scroll"><table>
+    <tr><th>الجهة</th><th>ماذا</th><th>متى</th></tr>
+    <tr><td>Google (AdMob وUMP)</td><td>معرّف الإعلانات وعنوان IP وبيانات الجهاز والتفاعل مع الإعلانات</td><td>النسخة المجانية</td></tr>
+    <tr><td>Google Play</td><td>تفاصيل الشراء والاشتراك</td><td>عند الشراء أو الاشتراك</td></tr>
+    <tr><td>حسابك في Google (Sheets وDrive)</td><td>صفوف الجداول المُزامَنة</td><td>عند تفعيل المزامنة</td></tr>
+    <tr><td>Anthropic أو OpenAI أو Google (مزوّد مفتاحك)</td><td>كما هو موضح في البند 2.4</td><td>عند استخدام الذكاء السحابي</td></tr>
+    <tr><td>عنوان الويب الذي أدخلته</td><td>صفوف ذلك الجدول</td><td>عند تفعيل Webhooks</td></tr>
+    <tr><td>تطبيقات الأتمتة التي اخترتها</td><td>أحداث الصفوف</td><td>عند تفعيل الأتمتة</td></tr>
+    <tr><td>الأشخاص الذين يراسلونك</td><td>ردودك التلقائية</td><td>عند تفعيل الرد التلقائي</td></tr>
+    <tr><td>الجهات الرسمية</td><td>ما نحتفظ به فقط (عملياً رسائل الدعم)</td><td>إذا ألزمنا القانون بذلك</td></tr>
+  </table></div>
+
+  <h2>10. الأسس النظامية للمعالجة (أوروبا والمملكة المتحدة والأنظمة المشابهة)</h2>
+  <ul>
+    <li><strong>تقديم التطبيق والميزات التي تفعّلها</strong> (الالتقاط والجداول والذكاء والمزامنة وWebhooks والأتمتة والردود): تنفيذ الاتفاق بيننا وبينك (شروط استخدام التطبيق)، واختيارك تفعيل كل ميزة.</li>
+    <li><strong>الإعلانات المخصصة:</strong> موافقتك عبر نموذج Google حيث يلزم ذلك. أما الإعلانات غير المخصصة ومنع الاحتيال: مصلحتنا المشروعة في تمويل النسخة المجانية.</li>
+    <li><strong>المشتريات:</strong> تنفيذ عقد الشراء، والالتزامات النظامية (مثل السجلات الضريبية التي تحفظها Google Play).</li>
+    <li><strong>رسائل الدعم:</strong> مصلحتنا المشروعة في الرد عليك.</li>
+  </ul>
   <p>
-    لا نبيع أي معلومات شخصية ولا نشارك رسائلك أو جداولك مع أحد. ولا تصل البيانات إلى أطراف أخرى إلا في الحالات الموضحة أعلاه:
-    معرّفات الإعلانات (AdMob في النسخة المجانية)، والمدفوعات (Google Play)، وحسابك في Google عند تفعيلك المزامنة.
+    أما رسائل الآخرين التي تعالجها بـ WExcel لأغراض عملك، فأنت من يحدد سبب معالجتها وطريقتها، وتحتاج إلى أساس نظامي خاص بك لذلك (انظر البند 14).
   </p>
 
-  <h2>8. خياراتك وحقوقك</h2>
+  <h2>11. نقل البيانات خارج بلدك</h2>
+  <p>
+    قد تعالج Google وAnthropic وOpenAI البيانات في الولايات المتحدة ودول أخرى. وعند تفعيلك ميزة ترسل البيانات إليها، تنتقل البيانات من جهازك إلى تلك الخدمة وفق شروطها،
+    التي تتضمن ضماناتها لنقل البيانات دولياً (مثل البنود التعاقدية القياسية). أما Webhooks وتطبيقات الأتمتة فترسل البيانات إلى حيث يعالجها مشغّلوها.
+  </p>
+
+  <h2>12. خياراتك وحقوقك</h2>
   <ul>
     <li><strong>إيقاف الالتقاط:</strong> أوقف قراءة الإشعارات في WExcel أو ألغِ صلاحية الإشعارات من إعدادات أندرويد.</li>
-    <li><strong>حذف البيانات:</strong> احذف ملفات ‎.txt و‎.xlsx من مجلدك، وامسح بيانات التطبيق أو احذفه لإزالة كل ما يحفظه في تخزينه الخاص.</li>
-    <li><strong>Google Sheets:</strong> أوقف المزامنة أو افصل الحساب أو ألغِ الصلاحية كما في البند 2، واحذف الجداول المُزامَنة من Google Drive.</li>
+    <li><strong>إيقاف الإرسال:</strong> أوقف الذكاء السحابي أو المزامنة مع Google Sheets أو Webhooks أو الأتمتة أو الرد التلقائي لجدول أو للتطبيق كله.</li>
+    <li><strong>حذف البيانات:</strong> احذف ملفات ‎.txt و‎.xlsx من مجلدك، واحذف الجدول لإزالة صفوفه التي قرأها الذكاء، وامسح بيانات التطبيق أو احذفه لإزالة كل ما يحفظه في تخزينه الخاص.</li>
+    <li><strong>Google Sheets:</strong> أوقف المزامنة أو افصل الحساب أو ألغِ الصلاحية كما في البند 4، واحذف الجداول المُزامَنة من Google Drive.</li>
+    <li><strong>مزوّدو الذكاء السحابي:</strong> اسأل مزوّد مفتاحك عن البيانات التي يحتفظ بها، عبر إعدادات حسابك لديه أو جهة الخصوصية لديه.</li>
     <li><strong>الإعلانات (أوروبا والمملكة المتحدة):</strong> غيّر موافقتك أو اسحبها في أي وقت من <em>الإعدادات ← خيارات الخصوصية للإعلانات</em> داخل التطبيق.</li>
     <li><strong>معرّف الإعلانات:</strong> أعد تعيينه أو احذفه من إعدادات أندرويد (الإعدادات ← Google ← الإعلانات، أو الإعدادات ← الخصوصية ← الإعلانات حسب جهازك).</li>
   </ul>
   <p>
-    <strong>اللائحة الأوروبية (GDPR):</strong> تتم المعالجة على جهازك لتقديم الميزات التي تستخدمها، وتعتمد الإعلانات على موافقتك عبر نموذج Google.
-    <strong>قوانين كاليفورنيا (CCPA/CPRA):</strong> لا نبيع المعلومات الشخصية ولا نشاركها للإعلانات السلوكية إلا معرّفات AdMob الموضحة أعلاه، ويمكنك تقييدها من إعدادات الإعلانات في جهازك.
-    ولأننا لا نحتفظ بأي نسخة من بيانات تطبيقك، يمكن تنفيذ معظم الطلبات مباشرة على جهازك؛ ولغير ذلك تواصل معنا.
+    بحسب مكان إقامتك (مثل اللائحة العامة لحماية البيانات GDPR في أوروبا، ونظيرتها في المملكة المتحدة، وقوانين كاليفورنيا CCPA/CPRA)،
+    قد يحق لك الوصول إلى بياناتك الشخصية وتصحيحها وحذفها وتقييد معالجتها أو الاعتراض عليها، والحصول على نسخة منها،
+    وسحب موافقتك في أي وقت دون أن يؤثر ذلك على ما سبقه، وعدم التمييز ضدك لاستخدامك هذه الحقوق. ولأننا لا نحتفظ بأي نسخة من بيانات تطبيقك، يمكن تنفيذ معظم الطلبات
+    مباشرة على جهازك؛ ولغير ذلك تواصل معنا (البند 18). ونرد خلال المدة التي يحددها النظام، وغالباً خلال شهر. ويحق لك أيضاً تقديم شكوى إلى الجهة المختصة بحماية البيانات
+    (مثل سلطة الإشراف في دولتك الأوروبية، أو مكتب مفوض المعلومات ICO في المملكة المتحدة).
   </p>
-
-  <h2>9. الأمان</h2>
   <p>
-    تبقى بيانات التطبيق في التخزين الخاص به داخل أندرويد، والاتصالات مع Google (Sheets وPlay وAdMob) مشفّرة عبر HTTPS. أما ملفات المجلد الذي تختاره فتحميها حماية جهازك،
-    فتجنّب اختيار مجلد تستطيع قراءته تطبيقات لا تثق بها.
+    <strong>كاليفورنيا:</strong> لا نبيع المعلومات الشخصية. والمشاركة الوحيدة للإعلانات السلوكية هي معرّفات AdMob الموضحة في البند 5، ويمكنك تقييدها من
+    <em>خيارات الخصوصية للإعلانات</em> ومن إعدادات الإعلانات في جهازك.
   </p>
 
-  <h2>10. مسؤوليتك عن رسائل الآخرين</h2>
-  <p>قد تحتوي الرسائل التي تلتقطها معلومات شخصية لأشخاص آخرين، فتأكد أنه مسموح لك بحفظها ومعالجتها وفق الأنظمة التي تنطبق عليك.</p>
+  <h2>13. المعالجة الآلية</h2>
+  <p>
+    يستخدم WExcel قواعد وذكاءً اصطناعياً لتعبئة جداولك، ولكتابة الردود إذا اخترت ذلك. ولا يتخذ بشأنك قرارات لها آثار نظامية أو آثار مهمة مشابهة،
+    وما يُفعل بالنتائج (مثل قبول طلب) تقرره أنت.
+  </p>
 
-  <h2>11. الأطفال</h2>
-  <p>WExcel أداة أعمال وليس موجهاً للأطفال دون 13 عاماً، ولا نجمع بيانات الأطفال عن علم.</p>
+  <h2>14. مسؤوليتك عن رسائل الآخرين</h2>
+  <p>
+    تحتوي الرسائل التي تلتقطها معلومات شخصية لأشخاص آخرين، وتُرسل إليهم الردود التلقائية. وعند استخدامك WExcel، خصوصاً في العمل، تأكد أنه مسموح لك بجمع هذه الرسائل
+    وحفظها وإرسالها (مثلاً إلى مزوّد ذكاء سحابي أو Webhook) والرد عليها وفق الأنظمة التي تنطبق عليك، وأبلغ جهات اتصالك حيث يلزم النظام ذلك، واحمِ الملفات التي تنشئها.
+    ولا تستخدم WExcel لرسائل لا يحق لك معالجتها.
+  </p>
 
-  <h2>12. التغييرات</h2>
-  <p>نحدّث هذه السياسة عند تغيّر التطبيق. يوضح تاريخ السريان أعلاه أحدث نسخة، ونعلن التغييرات المهمة داخل التطبيق أو في صفحة المتجر.</p>
+  <h2>15. الأمان</h2>
+  <p>
+    تبقى بيانات التطبيق في التخزين الخاص به داخل أندرويد، والاتصالات مع Google ومزوّدي الذكاء الاصطناعي وعناوين Webhook مشفّرة عبر HTTPS (ولا تقبل Webhooks إلا عناوين HTTPS).
+    ويُشفَّر مفتاح الذكاء السحابي ومفاتيح Webhook السرية بمفاتيح محفوظة في Android Keystore. أما ملفات المجلد الذي تختاره فتحميها حماية جهازك، فتجنّب اختيار مجلد
+    تستطيع قراءته تطبيقات لا تثق بها، واحمِ جوالك بقفل الشاشة. ولا توجد وسيلة آمنة تماماً، لكننا نعمل على حماية البيانات التي يتعامل معها التطبيق.
+  </p>
 
-  <h2>13. التواصل</h2>
+  <h2>16. الأطفال</h2>
+  <p>
+    WExcel أداة أعمال وليس موجهاً للأطفال دون 13 عاماً (أو السن الأعلى الذي يحدده نظام بلدك، مثل 16 عاماً في بعض الدول الأوروبية). ولا نجمع بيانات الأطفال عن علم،
+    وإذا اعتقدت أن طفلاً أرسل إلينا معلومات عبر التطبيق فتواصل معنا وسنحذفها.
+  </p>
+
+  <h2>17. التغييرات</h2>
+  <p>نحدّث هذه السياسة عند تغيّر التطبيق. يوضح تاريخ السريان أعلاه أحدث نسخة، ونعلن التغييرات المهمة داخل التطبيق أو في صفحة المتجر قبل سريانها.</p>
+
+  <h2>18. التواصل</h2>
   <p>للأسئلة أو الطلبات: <a href="mailto:mohammedalrehaili22@gmail.com">mohammedalrehaili22@gmail.com</a></p>
 </section>
 
